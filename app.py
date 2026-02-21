@@ -171,7 +171,7 @@ height=300
 # ------------------ Load AI Model ------------------
 @st.cache_resource
 def load_model():
-    return pipeline("text2text-generation", model="google/flan-t5-base")
+    return pipeline("text2text-generation", model="google/flan-t5-small")
 
 qa_bot = load_model()
 
