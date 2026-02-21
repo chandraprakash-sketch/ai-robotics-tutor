@@ -1,0 +1,186 @@
+{
+  "basics": {
+    "What is Arduino?": {
+      "answer": "Arduino is an open-source electronics platform used to build projects like robots, LED systems, and sensor devices. It has a hardware board and software called Arduino IDE. We write programs and upload them to the board to control electronic parts.",
+      "code": ""
+    },
+    "What is a microcontroller?": {
+      "answer": "A microcontroller is a small computer on a single chip. It has a processor, memory and input/output pins. Arduino uses a microcontroller to control devices.",
+      "code": ""
+    },
+    "What is Arduino IDE?": {
+      "answer": "Arduino IDE is a software used to write, compile and upload programs to the Arduino board.",
+      "code": ""
+    },
+    "What is a sketch?": {
+      "answer": "A sketch is the name given to an Arduino program.",
+      "code": ""
+    },
+    "What is setup() function?": {
+      "answer": "setup() runs only once when Arduino starts. It is used to set pin modes and initialize things.",
+      "code": "void setup() {\n  pinMode(13, OUTPUT);\n}"
+    },
+    "What is loop() function?": {
+      "answer": "loop() runs again and again forever. It contains the main logic of the program.",
+      "code": "void loop() {\n  digitalWrite(13, HIGH);\n}"
+    },
+    "What is pinMode()?": {
+      "answer": "pinMode() is used to set a pin as INPUT or OUTPUT.",
+      "code": "pinMode(13, OUTPUT);"
+    },
+    "What is digitalWrite()?": {
+      "answer": "digitalWrite() is used to set a digital pin HIGH or LOW.",
+      "code": "digitalWrite(13, HIGH);"
+    },
+    "What is digitalRead()?": {
+      "answer": "digitalRead() reads the value from a digital pin.",
+      "code": "int val = digitalRead(2);"
+    },
+    "What is delay()?": {
+      "answer": "delay() pauses the program for some time in milliseconds.",
+      "code": "delay(1000);"
+    }
+  },
+
+  "programming": {
+    "What is a variable?": {
+      "answer": "A variable is used to store data in a program. The value can change while the program is running.",
+      "code": "int count = 0;"
+    },
+    "What is if statement?": {
+      "answer": "if statement checks a condition and runs code only if the condition is true.",
+      "code": "if(x > 10) {\n  digitalWrite(13, HIGH);\n}"
+    },
+    "What is if-else?": {
+      "answer": "if-else is used to choose between two conditions.",
+      "code": "if(x > 10) {\n  digitalWrite(13, HIGH);\n} else {\n  digitalWrite(13, LOW);\n}"
+    },
+    "What is for loop?": {
+      "answer": "for loop repeats a block of code a fixed number of times.",
+      "code": "for(int i=0;i<5;i++){\n  digitalWrite(13, HIGH);\n}"
+    },
+    "What is while loop?": {
+      "answer": "while loop repeats code while a condition is true.",
+      "code": "while(x < 10) {\n  x++;\n}"
+    },
+    "What is a function?": {
+      "answer": "A function is a block of code that can be reused.",
+      "code": "void blink(){\n  digitalWrite(13, HIGH);\n}"
+    },
+    "What is a constant?": {
+      "answer": "A constant is a value that does not change during program execution.",
+      "code": "#define LED 13"
+    },
+    "What are comments?": {
+      "answer": "Comments explain the code and are ignored by the compiler.",
+      "code": "// This is a comment"
+    },
+    "What is Serial Monitor?": {
+      "answer": "Serial Monitor shows data from Arduino to the computer.",
+      "code": "Serial.begin(9600);\nSerial.println(\"Hello\");"
+    },
+    "What is baud rate?": {
+      "answer": "Baud rate is the speed of communication between Arduino and computer.",
+      "code": "Serial.begin(9600);"
+    }
+  },
+
+  "basic_codes": {
+    "LED Blink": {
+      "answer": "This program blinks an LED every one second.",
+      "code": "#define LED 13\n\nvoid setup(){\n  pinMode(LED, OUTPUT);\n}\n\nvoid loop(){\n  digitalWrite(LED, HIGH);\n  delay(1000);\n  digitalWrite(LED, LOW);\n  delay(1000);\n}"
+    },
+    "Two LEDs Alternately Blink": {
+      "answer": "This program blinks two LEDs one after another.",
+      "code": "#define LED1 12\n#define LED2 13\n\nvoid setup(){\n  pinMode(LED1, OUTPUT);\n  pinMode(LED2, OUTPUT);\n}\n\nvoid loop(){\n  digitalWrite(LED1, HIGH);\n  digitalWrite(LED2, LOW);\n  delay(1000);\n  digitalWrite(LED1, LOW);\n  digitalWrite(LED2, HIGH);\n  delay(1000);\n}"
+    },
+    "Button Control LED": {
+      "answer": "This program turns ON LED when button is pressed.",
+      "code": "#define LED 13\n#define BTN 2\n\nvoid setup(){\n  pinMode(LED, OUTPUT);\n  pinMode(BTN, INPUT);\n}\n\nvoid loop(){\n  int val = digitalRead(BTN);\n  if(val == HIGH){\n    digitalWrite(LED, HIGH);\n  } else {\n    digitalWrite(LED, LOW);\n  }\n}"
+    },
+    "Traffic Light": {
+      "answer": "This program works like a traffic signal using three LEDs.",
+      "code": "#define R 8\n#define Y 9\n#define G 10\n\nvoid setup(){\n  pinMode(R,OUTPUT);\n  pinMode(Y,OUTPUT);\n  pinMode(G,OUTPUT);\n}\n\nvoid loop(){\n  digitalWrite(R,HIGH);\n  delay(3000);\n  digitalWrite(R,LOW);\n\n  digitalWrite(Y,HIGH);\n  delay(1000);\n  digitalWrite(Y,LOW);\n\n  digitalWrite(G,HIGH);\n  delay(3000);\n  digitalWrite(G,LOW);\n}"
+    },
+    "LED Fade using PWM": {
+      "answer": "This program increases and decreases LED brightness slowly.",
+      "code": "#define LED 9\n\nvoid setup(){\n  pinMode(LED, OUTPUT);\n}\n\nvoid loop(){\n  for(int i=0;i<=255;i++){\n    analogWrite(LED, i);\n    delay(10);\n  }\n  for(int i=255;i>=0;i--){\n    analogWrite(LED, i);\n    delay(10);\n  }\n}"
+    },
+    "Buzzer Beep": {
+      "answer": "This program turns buzzer ON and OFF.",
+      "code": "#define BUZ 8\n\nvoid setup(){\n  pinMode(BUZ, OUTPUT);\n}\n\nvoid loop(){\n  digitalWrite(BUZ, HIGH);\n  delay(500);\n  digitalWrite(BUZ, LOW);\n  delay(500);\n}"
+    }
+  },
+
+  "sensors": {
+    "What is a sensor?": {
+      "answer": "A sensor detects changes like temperature, light or distance.",
+      "code": ""
+    },
+    "What is ultrasonic sensor?": {
+      "answer": "Ultrasonic sensor measures distance using sound waves.",
+      "code": ""
+    },
+    "What is LDR?": {
+      "answer": "LDR changes resistance based on light.",
+      "code": ""
+    },
+    "What is IR sensor?": {
+      "answer": "IR sensor detects obstacles.",
+      "code": ""
+    }
+  },
+
+  "motors": {
+    "What is DC motor?": {
+      "answer": "A DC motor is an electrical device that converts direct current (DC) electrical energy into mechanical motion (rotation).",
+      "code": ""
+    },
+    "What is servo motor?": {
+      "answer": "Servo motor moves to fixed angles.",
+      "code": ""
+    },
+    "Why motor driver needed?": {
+      "answer": "Arduino cannot supply enough current to motors.",
+      "code": ""
+    },
+    "What is L298N?": {
+      "answer": "L298N is a motor driver module.",
+      "code": ""
+    }
+  },
+
+  "power": {
+    "What is battery?": {
+      "answer": "Battery provides electrical power.",
+      "code": ""
+    },
+    "Why external power needed?": {
+      "answer": "Motors need more current than Arduino can supply.",
+      "code": ""
+    },
+    "What is voltage?": {
+      "answer": "Voltage pushes current in a circuit.",
+      "code": ""
+    },
+    "What is current?": {
+      "answer": "Current is the flow of electricity.",
+      "code": ""
+    }
+  },
+
+  "esp32": {
+    "What is ESP32?": {
+      "answer": "ESP32 is a microcontroller with WiFi and Bluetooth.",
+      "code": ""
+    },
+    "What is IoT?": {
+      "answer": "IoT means Internet of Things. Devices can send data using internet.",
+      "code": ""
+    },
+    "Arduino vs ESP32?": {
+      "answer": "ESP32 is faster and has WiFi. Arduino is simpler.",
+      "code": ""
+    }
+  }
+}
